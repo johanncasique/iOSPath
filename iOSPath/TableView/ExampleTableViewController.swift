@@ -12,14 +12,9 @@ protocol sections {
     func getSections() -> TableSections
 }
 
-struct TableSections: sections {
-    func getSections() -> TableSections {
-        
-    }
-    
-    
-    let titleSection: String
-    var dataSource: [String]
+struct TableSections  {
+    let titleSection: [String]
+    let storyBoardName: [String]
 }
 
 class ExampleTableViewController: UIViewController {
@@ -31,53 +26,42 @@ class ExampleTableViewController: UIViewController {
         }
     }
     
-    var dataSource<T>: [TableSections<T>]!
+    var dataSource: TableSections?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource = [TableSections<String>(titleSection: "Delete Rows", dataSource: ["Horse", "Cow", "Camel", "Pig", "Sheep", "Goat"])]
+        dataSource = TableSections(titleSection: ["Delete/Insert rows"], storyBoardName: ["DeleteRowsViewController"])
         
     }
 }
 
 extension ExampleTableViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return dataSource.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource[section].dataSource.count
+        return dataSource?.titleSection.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = dataSource[indexPath.section].dataSource[indexPath.row]
+        cell.textLabel?.text = dataSource?.titleSection[indexPath.row] ?? ""
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return dataSource[section].titleSection
-    }
 }
 
 extension ExampleTableViewController: UITableViewDelegate {
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let dataSource = self.dataSource else { return }
         let storyboard = UIStoryboard(name: "ExampleTableViewController", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "DeleteRowsViewController")
+        let vc = storyboard.instantiateViewController(withIdentifier: dataSource.storyBoardName[indexPath.row])
+        vc.title = dataSource.titleSection[indexPath.row]
         show(vc, sender: self)
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        switch editingStyle {
-        case .delete:
-            dataSource[indexPath.section].dataSource.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        default: break
-        }
     }
 }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeleteRowsViewController: UIViewController {
+class DeleteInsertRowsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -21,7 +21,7 @@ class DeleteRowsViewController: UIViewController {
 }
 
 
-extension DeleteRowsViewController: UITableViewDataSource {
+extension DeleteInsertRowsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -39,13 +39,14 @@ extension DeleteRowsViewController: UITableViewDataSource {
     }
 }
 
-extension DeleteRowsViewController: UITableViewDelegate {
+extension DeleteInsertRowsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
             animals.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
         }
     }
 }

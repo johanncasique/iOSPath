@@ -50,6 +50,7 @@ extension MainViewController: UITableViewDelegate {
         let model = dataSource[indexPath.row]
         let storyboard = UIStoryboard(name: model.storyboardName, bundle: nil)
         if let vc = storyboard.instantiateInitialViewController() {
+            vc.title = dataSource[indexPath.row].subtitle
             show(vc, sender: self)
         }
         
