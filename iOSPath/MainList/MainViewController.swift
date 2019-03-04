@@ -28,32 +28,31 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return dataSource[section].items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let model = dataSource[indexPath.row]
+        let model = dataSource[indexPath.section].items[indexPath.row]
         cell.textLabel?.text = model.title
         cell.detailTextLabel?.text = model.subtitle
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return dataSource[section].sectionTitle
     }
 }
 
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = dataSource[indexPath.row]
-        let storyboard = UIStoryboard(name: model.storyboardName, bundle: nil)
-        if let vc = storyboard.instantiateInitialViewController() {
-            vc.title = dataSource[indexPath.row].subtitle
-            show(vc, sender: self)
-        }
-        
+        let model = dataSource[indexPath.section].items[indexPath.row]
+        show(model.storyboardName, sender: self)
     }
 }
 

@@ -14,9 +14,9 @@
 		1E51AD3E21C5810D00F47FE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E51AD3C21C5810D00F47FE5 /* LaunchScreen.storyboard */; };
 		1E51AD4721C5ABDD00F47FE5 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51AD4621C5ABDD00F47FE5 /* DataSource.swift */; };
 		1E51AD4921C5B05500F47FE5 /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51AD4821C5B05500F47FE5 /* Storyboardable.swift */; };
-		1E51AD4C21C5B18000F47FE5 /* ExampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51AD4B21C5B18000F47FE5 /* ExampleTableViewController.swift */; };
-		1E51AD4E21C5B1D100F47FE5 /* ExampleTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E51AD4D21C5B1D100F47FE5 /* ExampleTableViewController.storyboard */; };
-		1E51AD5121C5BCB000F47FE5 /* DeleteInsertRowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51AD5021C5BCB000F47FE5 /* DeleteInsertRowsViewController.swift */; };
+		1E51AD4E21C5B1D100F47FE5 /* DeleteRowsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E51AD4D21C5B1D100F47FE5 /* DeleteRowsViewController.storyboard */; };
+		1E51AD5121C5BCB000F47FE5 /* DeleteRowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51AD5021C5BCB000F47FE5 /* DeleteRowsViewController.swift */; };
+		1EABBD55222DD41E00AA52BF /* DragAndDropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EABBD54222DD41E00AA52BF /* DragAndDropViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +29,9 @@
 		1E51AD3F21C5810D00F47FE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E51AD4621C5ABDD00F47FE5 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		1E51AD4821C5B05500F47FE5 /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
-		1E51AD4B21C5B18000F47FE5 /* ExampleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTableViewController.swift; sourceTree = "<group>"; };
-		1E51AD4D21C5B1D100F47FE5 /* ExampleTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExampleTableViewController.storyboard; sourceTree = "<group>"; };
-		1E51AD5021C5BCB000F47FE5 /* DeleteInsertRowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteInsertRowsViewController.swift; sourceTree = "<group>"; };
+		1E51AD4D21C5B1D100F47FE5 /* DeleteRowsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeleteRowsViewController.storyboard; sourceTree = "<group>"; };
+		1E51AD5021C5BCB000F47FE5 /* DeleteRowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRowsViewController.swift; sourceTree = "<group>"; };
+		1EABBD54222DD41E00AA52BF /* DragAndDropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDropViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +88,8 @@
 		1E51AD4A21C5B15900F47FE5 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				1EABBD53222DD33500AA52BF /* DragAndDrop */,
 				1E51AD4F21C5BC8300F47FE5 /* DeleteRows */,
-				1E51AD4B21C5B18000F47FE5 /* ExampleTableViewController.swift */,
-				1E51AD4D21C5B1D100F47FE5 /* ExampleTableViewController.storyboard */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -98,9 +97,18 @@
 		1E51AD4F21C5BC8300F47FE5 /* DeleteRows */ = {
 			isa = PBXGroup;
 			children = (
-				1E51AD5021C5BCB000F47FE5 /* DeleteInsertRowsViewController.swift */,
+				1E51AD5021C5BCB000F47FE5 /* DeleteRowsViewController.swift */,
+				1E51AD4D21C5B1D100F47FE5 /* DeleteRowsViewController.storyboard */,
 			);
 			path = DeleteRows;
+			sourceTree = "<group>";
+		};
+		1EABBD53222DD33500AA52BF /* DragAndDrop */ = {
+			isa = PBXGroup;
+			children = (
+				1EABBD54222DD41E00AA52BF /* DragAndDropViewController.swift */,
+			);
+			path = DragAndDrop;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,7 +172,7 @@
 				1E51AD3E21C5810D00F47FE5 /* LaunchScreen.storyboard in Resources */,
 				1E51AD3B21C5810D00F47FE5 /* Assets.xcassets in Resources */,
 				1E51AD3921C5810B00F47FE5 /* Main.storyboard in Resources */,
-				1E51AD4E21C5B1D100F47FE5 /* ExampleTableViewController.storyboard in Resources */,
+				1E51AD4E21C5B1D100F47FE5 /* DeleteRowsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,10 +183,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E51AD4C21C5B18000F47FE5 /* ExampleTableViewController.swift in Sources */,
 				1E51AD4921C5B05500F47FE5 /* Storyboardable.swift in Sources */,
-				1E51AD5121C5BCB000F47FE5 /* DeleteInsertRowsViewController.swift in Sources */,
+				1E51AD5121C5BCB000F47FE5 /* DeleteRowsViewController.swift in Sources */,
 				1E51AD4721C5ABDD00F47FE5 /* DataSource.swift in Sources */,
+				1EABBD55222DD41E00AA52BF /* DragAndDropViewController.swift in Sources */,
 				1E51AD3621C5810B00F47FE5 /* MainViewController.swift in Sources */,
 				1E51AD3421C5810B00F47FE5 /* AppDelegate.swift in Sources */,
 			);
